@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Code-it</a>
+      <form class="d-flex" *ngIf="_router.url!=='/' && _router.url!=='/login'">
+        <button class="btn btn-danger" type="submit" (click)="logOut()">Logout</button>
+      </form>
+    </div>
+  </nav>
+  

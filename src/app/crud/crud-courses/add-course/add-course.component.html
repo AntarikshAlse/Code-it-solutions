@@ -1,0 +1,25 @@
+
+<form #courseAdd="ngForm" (ngSubmit)="AddData(courseAdd.value)">
+
+<div class="form-group">
+    <label for="cname">Course Name</label>
+    <input id="cname" type="text" class="form-control" name="name" #refname="ngModel" [pattern]="namePattern" ngModel>
+    <div class="danger" *ngIf="refname.invalid && refname.touched">
+        <div *ngIf="refname.hasError('pattern')">
+            Can only contain ahphabets and spaces
+        </div>
+        
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fees">Course fees</label>
+    <input id="fees" type="text" class="form-control" name="fees" placeholder="Rs"  [pattern]="FeesPattern" #refFees="ngModel" ngModel>
+    <div class="danger" *ngIf="refFees.invalid && refFees.touched">
+        <div *ngIf="refFees.hasError('pattern')">
+            Fees must only contain numbers.
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>

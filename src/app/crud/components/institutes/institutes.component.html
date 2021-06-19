@@ -1,0 +1,37 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="row mt-2">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-primary mr-1" routerLink='/add-institute'><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+    </div>
+    <div class="col-sm-5 " >
+        <!-- <i class="fa fa-sign-out mr-1" aria-hidden="true"></i> -->
+        <input type="text" style=" width:70%;" name="searchkey" class="form-control" [(ngModel)]="searchrecord" placeholder="search here....">
+    </div>
+</div>
+
+
+
+
+<table class="table mt-2  table-striped table-bordered" style="width:80%">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th style="width:60%">Institute</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of instituteArray | filter:searchrecord | paginate: { itemsPerPage: 6, currentPage: p }">
+            <td>{{i.id}}</td>
+            <td>{{i.institutename}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-success mr-1" [routerLink]="['/edit-institute',i.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-danger mr-1" (click)="deleteInstitute(i.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="text-danger">{{errorMsg}}</h3>
+<pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>

@@ -1,0 +1,13 @@
+
+<form #instituteEdit="ngForm" (ngSubmit)="editData(instituteEdit.value)">
+
+    <div class="form-group">
+        <label for="cname">Institute Name</label>
+        <input id="cname" type="text" class="form-control" name="institutename"   [ngModel]="instituteObj.institutename">
+            
+    </div>
+     
+    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+    <button type="button"  class="btn btn-outline-danger mr-2" (click)="cancel()">Cancel</button>
+    </form>
+    

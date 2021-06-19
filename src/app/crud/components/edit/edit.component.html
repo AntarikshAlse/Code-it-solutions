@@ -1,0 +1,90 @@
+
+<form #formdata="ngForm" (ngSubmit)="getdata(formdata.value)">
+
+ <div class="form-group">
+     <label for="Myname">Name</label>
+     <input type="text" name="name" class="form-control" [ngModel]="stdObj.name">
+ </div>
+
+ <div class="form-group">
+     <label>Mobile No.</label>
+     <input type="text" name="mobileNo" class="form-control" [ngModel]="stdObj.mobileNo">
+     
+    </div>
+
+ <div class="form-group">
+     <label>Email</label>
+     <input type="text" name="email" class="form-control" [ngModel]="stdObj.email">
+ </div>
+
+ <div class="form-group">
+     <label>stdQualification</label>
+
+     <select name="qualification" class="form-control" [ngModel]="stdObj.qualification">
+        <option [value]="degree"  *ngFor="let degree of qualification">{{degree}} </option> 
+      </select>
+ </div>
+
+ <div class="form-group">
+     <label>Specialization</label>
+     <input type="text" name="specialization" class="form-control" [ngModel]="stdObj.specialization">
+ </div>
+ <div class="form-group">
+     <label>Appearing</label><br>
+     <input type="radio" id="yess" name="appearing" class="form-check-input" [ngModel]="stdObj.appearing" value="yes">
+     <label for="yess">Yes</label>&nbsp;
+     <input type="radio" id="noo" name="appearing" class="form-check-input" [ngModel]="stdObj.appearing" value="no">
+     <label for="noo">No</label>
+ </div>
+
+ <div class="form-group">
+     <label>Year of Passing</label>
+     <select name="yearofPassing" class="form-control" [ngModel]="stdObj.yearofPassing">
+         <option [value]="yop" *ngFor="let yop of yearofpassing">{{yop}}</option>
+     </select>
+ </div>
+
+ <div class="form-group">
+     <label>College Name</label>
+     <input type="text" name="college" class="form-control" [ngModel]="stdObj.college">
+ </div>
+ <div class="form-group">
+     <label>City</label>
+     <input type="text" name="city" class="form-control" [ngModel]="stdObj.city">
+ </div>
+ <div class="form-group">
+     <label>Std Experience</label>
+     <select name="experience" class="form-control" [ngModel]="stdObj.experience">
+        <option [value]="Exp" *ngFor="let Exp of experience">{{Exp}} </option> 
+        </select>
+ </div>
+ <div class="form-group">
+     <label>Select Institute</label>
+     <select name="Institute" class="form-control" [ngModel]="stdObj.Institute">
+        <option [value]="I" *ngFor="let I of instituteArray">{{I.institutename}}</option>
+         </select>
+ </div>
+ <div class="form-group">
+     <label>Courses</label>
+     <select name="Course" class="form-control" [ngModel]="stdObj.Course">
+        <option [value]="lang" *ngFor="let lang of courseArray">{{lang.coursename}}</option>
+         </select>
+
+ </div>
+ <div class="form-group">
+     <label>Where did you hear us</label>
+     <select name="Advert" class="form-control" [ngModel]="stdObj.Advert">
+         <option [value]="ad" *ngFor="let ad of Advert" >{{ad}}</option>
+     </select>
+ </div>
+ <div class="form-group">
+     <label>Batch type</label><br>
+     <input type="radio" id="workD" name="Batch" class="form-check-input"  [ngModel]="stdObj.Batch" value="Weekdays">
+    <label for="workD">Weekdays</label>&nbsp;
+     <input type="radio"  id="holiday" name="Batch" class="form-check-input" [ngModel]="stdObj.Batch" value="Weekends">
+     <label for="holiday">Weekend</label>
+ </div><br>
+
+ <button type="submit" class="btn btn-primary">Submit</button>
+ <button class="btn btn-outline-danger ml-2" (click)="cancel()">Cancel</button> 
+</form>

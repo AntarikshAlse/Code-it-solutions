@@ -1,0 +1,19 @@
+
+.list-group{
+    border-style: none;
+}
+.list-group-item{
+    border-style: none;
+
+}
+.card{
+    height: 220%;
+}
+.btn{
+    width: -webkit-fill-available;
+}
+
+.card-header{
+    font-family: revert;
+    font-weight: 600;
+}

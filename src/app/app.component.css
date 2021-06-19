@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app{
+    display:grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 10px;
+    /* grid-row: 10% 80% 10%; */
+}
+
+.na,.footer{
+    grid-column: 1/-1;
+}
+.crud{
+    /* grid-row: 200px; */
+}

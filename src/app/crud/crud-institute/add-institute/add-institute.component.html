@@ -1,0 +1,15 @@
+<form #instituteAdd="ngForm" (ngSubmit)="Data(instituteAdd.value)">
+
+    <div class="form-group">
+        <label for="iname">Institute Name</label>
+        <input id="iname" type="text" class="form-control" name="fname" #refname="ngModel" [pattern]="namePattern" ngModel>
+        <div class="danger" *ngIf="refname.invalid && refname.touched">
+            <div *ngIf="refname.hasError('pattern')">
+                Can only contain ahphabets and spaces
+            </div>  
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+    

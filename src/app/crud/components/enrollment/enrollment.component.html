@@ -1,0 +1,191 @@
+<div class="col-md-6 card mt-4">
+    <div class="card-header">
+        <h4>Enrollment</h4>
+    </div>
+<form [formGroup]="stdform" class="card-body" (ngSubmit)="getData(stdform.value)">
+    
+    <div class="form-group" style="font-family: unset;">
+        <label>Name</label>
+        <input type="text"  class="form-control" formControlName="stdFullName">
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdFullName').invalid && stdform.get('stdFullName').touched">
+            <div *ngIf="stdform.get('stdFullName').errors.required"> this field is required</div>
+            <div *ngIf="stdform.get('stdFullName').errors.pattern">Fullname must contain only character,min 3 and max 30 </div>
+        </div>
+    </div><br>
+
+     <div class="form-group">
+        <label>Mobile No.</label>
+        <input type="text" class="form-control" formControlName="stdMobile">
+        <div class="alert alert-danger" *ngIf="stdform.get('stdMobile').invalid && stdform.get('stdMobile').touched">
+            <div *ngIf="stdform.get('stdMobile').errors.required"> this field is required</div>
+            <div *ngIf="stdform.get('stdMobile').errors.pattern"> Must contain only numbers</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="stdEmail">
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdEmail').invalid && stdform.get('stdEmail').touched">
+            <div *ngIf="stdform.get('stdEmail').errors.required"> this field is required</div>
+            <div *ngIf="stdform.get('stdEmail').errors.pattern">Email can only contain @, numbers,_ % + - </div>
+        </div>
+    </div><br>
+
+
+    <div class="form-group">
+        <label>stdQualification</label>
+        <select class="form-control" (change)="deg(stdform.get('stdQualification').value)"  formControlName="stdQualification" >
+            <option value="select">Select </option>
+            <option [value]="degree"  *ngFor="let degree of qualification">{{degree}} </option> 
+        </select>
+
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdQualification').invalid && stdform.get('stdQualification').touched">
+            <div *ngIf="stdform.get('stdQualification').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+
+    <div class="form-group">
+        <label>Enter Your Specialization</label>
+        <input type="text" class="form-control" name="stdFullName" formControlName="stdSpecialization" *ngIf="specialization" >
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdSpecialization').invalid && stdform.get('stdSpecialization').touched">
+            <div *ngIf="stdform.get('stdSpecialization').errors.required"> this field is required</div>
+        </div>
+    </div>
+    <br>
+                     <!----- Appearing -------->
+    
+    <div class="form-group">
+        <label>Appearing</label><br>
+        <input type="Radio" class="form-check-input"  value="yes" name="appearing"  (click)="getPassingYear('option1')" formControlName="appearing">
+        <label for="yes">Yes</label>&nbsp;
+        <input type="Radio" class="form-check-input" value="no" name="appearing" (click)="getPassingYear('otheroption')" formControlName="appearing">
+        <label for="no">no</label>
+
+         <div class="alert alert-danger" *ngIf="stdform.get('appearing').invalid && stdform.get('appearing').touched">
+            <div *ngIf="stdform.get('appearing').errors.required"> this field is required</div>
+        </div> 
+    </div><br>
+                            <!-------YOP-------->
+    <div class="form-group">
+        <label>Year of Passing</label><br>
+        <fieldset [disabled]="formControlState">
+            <!-- another method by using [readonly]="condition"
+                <input type="month" formControlName="stdPassingYear" [readonly]="FormControlState" class="form-control"> -->
+            <input type="month" formControlName="stdPassingYear" class="form-control"><br>
+        </fieldset>
+        <!-- <select class="form-control" formControlName="stdPassingYear" *ngIf="formControlState">
+            <option value="">Select </option>
+            <option [value]="year" *ngFor="let year of yearOfPassing">{{year}} </option> 
+        </select> -->
+
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdPassingYear').invalid && stdform.get('stdPassingYear').touched">
+            <div *ngIf="stdform.get('stdPassingYear').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+    <!-- <button type="button" (click)="regex()" >yop</button> -->
+    
+
+    <div class="form-group">
+        <label>Enter Your College Name</label>
+        <input type="text" class="form-control" formControlName="stdCollegeName">
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdCollegeName').invalid && stdform.get('stdCollegeName').touched">
+            <div *ngIf="stdform.get('stdCollegeName').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" formControlName="stdCity">
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdCity').invalid && stdform.get('stdCity').touched">
+            <div *ngIf="stdform.get('stdCity').errors.required"> this field is required</div>
+            <div *ngIf="stdform.get('stdCity').errors.pattern">City must contain only character,min 3 and max 30
+            </div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>stdExp</label>
+        <select class="form-control" formControlName="stdExp" required>
+            <option value="">Select </option>
+            <option [value]="Exp" *ngFor="let Exp of stdExp">{{Exp}} </option> 
+        </select>
+
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('stdExp').invalid && stdform.get('stdExp').touched">
+            <div *ngIf="stdform.get('stdExp').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label >Select Institute</label><br>
+        <input type="Radio" id="Firstbit" class="form-check-input" formControlName="Institute" value="Firstbit" name="Institute" (click)="getInstitute('Firstbit')" required>
+        <label for="Firstbit"> Firstbit</label>&nbsp;&nbsp;
+
+        <input type="Radio" id="Other" class="form-check-input" name="Institute" (click)="getInstitute('')"  required>
+        <label for="Other"> Other</label><br><br>
+
+        <select class="form-control"  formControlName="Institute" *ngIf="instituteState">
+            <option *ngFor="let name of instituteArray">{{name.institutename}} </option> 
+        </select>
+        <div class="alert alert-danger" *ngIf="stdform.get('Institute').invalid && stdform.get('Institute').touched">
+            <div *ngIf="stdform.get('Institute').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>Course</label>
+        <select class="form-control" formControlName="Course">
+            <option value="">Select Course </option>
+            <option *ngFor="let Lang of courseArray">{{Lang.coursename}} </option> 
+        </select>
+
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('Course').invalid && stdform.get('Course').touched">
+            <div *ngIf="stdform.get('Course').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>Where did you hear us</label>
+        <select class="form-control" formControlName="Advert" required>
+            <option value="">Select Advert type </option>
+           
+            <option  *ngFor="let mode of Advert">{{mode}} </option> 
+        </select>
+
+        <div class="alert alert-danger"
+            *ngIf="stdform.get('Advert').invalid && stdform.get('Advert').touched">
+            <div *ngIf="stdform.get('Advert').errors.required"> this field is required</div>
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <label>Batch type</label><br>
+        <input type="Radio" class="form-check-input" value="Weekdays" name="BatchType" formControlName="BatchType" required>
+        <label>Weekdays</label>
+        <input type="Radio" class="form-check-input" value="Weekends"  name="BatchType" formControlName="BatchType" required>
+        <label>Weekends</label>
+    </div><br>
+  
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="stdTerm" formControlName="stdTerm" required>
+        <label>I am agree that all information is correct & true to the best of my knowledge</label>
+
+        <div class="alert alert-danger" *ngIf="stdform.get('stdTerm').invalid && stdform.get('stdTerm').touched">
+            <div *ngIf="stdform.get('stdTerm').errors.required"> this field is required</div>
+        </div>
+    </div><br> 
+    <!-- check for invalid code later -->
+    <!-- <button type="submit" class="btn btn-primary" [disabled]="stdform.invalid">Submit</button> -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>  
+</div>

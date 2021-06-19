@@ -1,0 +1,17 @@
+
+<form #courseEdit="ngForm" (ngSubmit)="editData(courseEdit.value)">
+
+    <div class="form-group">
+        <label for="cname">Course Name</label>
+        <input id="cname" type="text" class="form-control" name="coursename"   [ngModel]="courseObj.coursename">
+            
+    </div>
+    
+    <div class="form-group">
+        <label for="fees">Course fees</label>
+        <input id="fees" type="text" class="form-control" name="courseFees"  [ngModel]="courseObj.courseFees">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    

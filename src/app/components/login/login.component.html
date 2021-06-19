@@ -1,0 +1,22 @@
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" /> -->
+<form class="card mt-5">
+    <div class="card-header">
+        <h4>Login</h4>
+    </div>
+    <div class="card-body">
+    <div class="form-group" >
+    <label for="">User Id</label>
+    <input type="text" class="form-control" name="user" placeholder="admin" [(ngModel)]="user" minlength="3" required>
+    </div>
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="admin@123"  [(ngModel)]="password">
+        <!-- <i class="bi bi-eye-slash" id="togglePassword" (click)="Toggle()"></i> -->
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-2" (click)="loginUser()">Submit</button>
+
+</div>
+<p style = "color:gray">*use the credientials in box for login</p>
+</form>

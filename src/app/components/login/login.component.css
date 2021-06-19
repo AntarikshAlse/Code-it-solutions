@@ -1,0 +1,13 @@
+form{
+    width: 30rem;
+    height: max-content;
+    padding:.5rem;
+
+}
+button{
+    width:100%;
+}
+.form-group i {
+/* margin-left: -30px; */
+    cursor: pointer;
+}

@@ -1,0 +1,66 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="row mt-2">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-primary mb-2" routerLink="/enrollment"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+    </div>
+    <div class="col-sm-5 " >
+        <!-- <i class="fa fa-sign-out mr-1" aria-hidden="true"></i> -->
+        <input type="text" style=" width:70%;" name="searchkey" class="form-control" [(ngModel)]="searchrecord" placeholder="search here....">
+    </div>
+</div>
+<table class="table table-responsive-sm  mt-2 table-striped table-dark table-bordered " style="width:80%">
+    
+    <thead>
+        <tr>
+            <th   (click)="changeOrder()">Id</th>
+            <th   (click)="changeOrder()">Name</th>
+            <th   (click)="changeOrder()">Institute</th>
+            <th   (click)="changeOrder()">Course</th>
+            <th >Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of studentList | filter:searchrecord | paginate: { itemsPerPage: 6, currentPage: p } |orderBy: order:reverse">
+            <td >{{std.id}}</td>
+            <td>{{std.name}}</td>
+            <td>{{std.Institute}}</td>
+            <td>{{std.Course}}</td>
+            <td class="col-sm-3"> 
+                <button type="button" class="btn btn-outline-primary" (click)="openModal(template)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-success " [routerLink]="['/edit',std.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-danger " (click)="deleteStd(std.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
+        
+            <ng-template #template>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">{{std.name}}</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-bordered">
+                        <tr><td>Advert </td><td>{{std.Advert}}  </td></tr>  
+                        <tr><td> Batch </td><td>  {{ std.Batch}}  </td></tr>  
+                        <tr><td> Course </td><td>  {{std.Course}}  </td></tr>  
+                        <tr><td> Institute </td><td>  {{std.Institute}}  </td></tr>  
+                        <tr><td> appearing </td><td>  {{ std.appearing}}  </td></tr>  
+                        <tr><td> city </td><td>  {{ std.city}}  </td></tr>  
+                        <tr><td> college </td><td>  {{ std.college}}  </td></tr>  
+                        <tr><td> email </td><td>  {{ std.email}}  </td></tr>  
+                        <tr><td> experience </td><td>  {{ std.experience}}  </td></tr>  
+                        <tr><td> name </td><td>  {{ std.name}}  </td></tr>  
+                        <tr><td> mobileNo </td><td>  {{ std.mobileNo}}  </td></tr>  
+                        <tr><td> yearofPassing </td><td>  {{std.yearofPassing}}  </td></tr>  
+                        <tr><td> qualification </td><td>  {{ std.qualification}}  </td></tr>  
+                        <tr><td> specialization </td><td>  {{ std.specialization}}  </td></tr>  
+                  </table>
+                </div>
+            </ng-template>
+        </tr> 
+        
+    </tbody>
+</table>
+<h3 class="text-danger">{{errorMsg}}</h3>
+<pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
