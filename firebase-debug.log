@@ -1,0 +1,32 @@
+[debug] [2021-06-19T18:56:09.587Z] ----------------------------------------------------------------------
+[debug] [2021-06-19T18:56:09.595Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2021-06-19T18:56:09.596Z] CLI Version:   9.10.0
+[debug] [2021-06-19T18:56:09.596Z] Platform:      win32
+[debug] [2021-06-19T18:56:09.596Z] Node Version:  v12.19.0
+[debug] [2021-06-19T18:56:09.600Z] Time:          Sun Jun 20 2021 00:26:09 GMT+0530 (India Standard Time)
+[debug] [2021-06-19T18:56:09.600Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-19T18:56:09.625Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-19T18:56:09.626Z] > authorizing via signed-in user (ironspider527@gmail.com)
+[debug] [2021-06-19T18:56:09.627Z] [iam] checking project code-it-solutionss for permissions ["firebase.projects.get"]
+[debug] [2021-06-19T18:56:09.634Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/code-it-solutionss:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-06-19T18:56:11.770Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 19 Jun 2021 18:56:12 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1327","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-19T18:56:11.776Z] > refreshing access token with scopes: []
+[debug] [2021-06-19T18:56:11.777Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-19T18:56:12.172Z] <<< HTTP RESPONSE 200 {"date":"Sat, 19 Jun 2021 18:56:13 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-19T18:56:12.199Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss [none]
+[debug] [2021-06-19T18:56:12.899Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss 200
+[debug] [2021-06-19T18:56:12.899Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss {"projectId":"code-it-solutionss","projectNumber":"313030461947","displayName":"code-it-solutionss","name":"projects/code-it-solutionss","resources":{"hostingSite":"code-it-solutionss"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from 'D:\Full Stack (firstbit)\Projects\Angular\Code-it-solutions'...
+[info] 
+[debug] [2021-06-19T18:56:12.907Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss/webApps/-/config [none]
+[debug] [2021-06-19T18:56:14.848Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss/webApps/-/config 200
+[debug] [2021-06-19T18:56:14.849Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/code-it-solutionss/webApps/-/config {"projectId":"code-it-solutionss","appId":"1:313030461947:web:06da56f7829f7f5f7a635e","storageBucket":"code-it-solutionss.appspot.com","apiKey":"AIzaSyCvJ52ufMvQvZW0e4dhtiB7coYxhXMEQz0","authDomain":"code-it-solutionss.firebaseapp.com","messagingSenderId":"313030461947"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] "GET / HTTP/1.1" 200 4526 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] \"GET / HTTP/1.1\" 200 4526 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] "GET /favicon.ico HTTP/1.1" 304 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [19/Jun/2021:18:56:20 +0000] \"GET /favicon.ico HTTP/1.1\" 304 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36\""}}
