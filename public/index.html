@@ -40,7 +40,25 @@
   </head>
   <body>
       <app-root></app-root>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCvJ52ufMvQvZW0e4dhtiB7coYxhXMEQz0",
+    authDomain: "code-it-solutionss.firebaseapp.com",
+    projectId: "code-it-solutionss",
+    storageBucket: "code-it-solutionss.appspot.com",
+    messagingSenderId: "313030461947",
+    appId: "1:313030461947:web:06da56f7829f7f5f7a635e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');
