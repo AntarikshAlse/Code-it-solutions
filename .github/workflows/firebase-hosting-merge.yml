@@ -20,6 +20,5 @@ jobs:
           build_configuration: production
           base_href: https://code-it-solutionss.web.app/
           deploy_branch: main
-          angular_dist_build_folder: dist/new-app
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
