@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this._globalSer.getData('users').subscribe((res)=>{
       this.userData=res;
-     console.log(this.userData)
      const data=this.userData.filter((item:any)=>{ return item.userName==this.user && item.password==this.password
      /* bcrypt.compare(this.password,item.password)
       .then((res) => {console.log(res)})*/
