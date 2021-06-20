@@ -7,8 +7,8 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GlobalServiceService {
-//baseUrl:string = "https://typicode-api.herokuapp.com";
-  baseUrl:string = "https://angularpjt.herokuapp.com";
+baseUrl:string = "https://typicode-api.herokuapp.com";
+ // baseUrl:string = "https://angularpjt.herokuapp.com";
   // baseUrl:string = "https://new-json-api.herokuapp.com";
  // baseUrl:string = "https://testapi-one.herokuapp.com";
   option = { headers: new HttpHeaders().set("Content-type", "application/json") };

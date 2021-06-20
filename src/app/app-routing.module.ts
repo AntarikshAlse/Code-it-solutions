@@ -19,8 +19,8 @@ import { ContactComponent } from './components/contact/contact.component';
 const routes: Routes = [  
 //{path:"",component:DashboardComponent},
 {path:"login",component:LoginComponent},
-//{path:"dashboard",component:DashboardComponent,canActivate:[AuthenticationGuard]},
-{path:"dashboard",component:DashboardComponent},
+{path:"dashboard",component:DashboardComponent,canActivate:[AuthenticationGuard]},
+//{path:"dashboard",component:DashboardComponent},
 {path:"courses",component:CoursesComponent,canActivate:[AuthenticationGuard]},
 {path:"institute",component:InstitutesComponent,canActivate:[AuthenticationGuard]},
 {path:"enrollment",component:EnrollmentComponent,canActivate:[AuthenticationGuard]},
