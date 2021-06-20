@@ -19,7 +19,7 @@ jobs:
           projectId: code-it-solutionss
           build_configuration: production
           angular_dist_build_folder: dist/new-app
-          base_href: /login/
+          base_href: /dashboard
           deploy_branch: main
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
