@@ -6,17 +6,16 @@
     <div class="card-body">
     <div class="form-group" >
     <label for="">User Id</label>
-    <input type="text" class="form-control" name="user" placeholder="admin" [(ngModel)]="user" minlength="3" required>
+    <input type="text" class="form-control" name="user"  [(ngModel)]="user" minlength="3" required>
     </div>
 
     <div class="form-group">
         <label for="">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="admin@123"  [(ngModel)]="password">
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
         <!-- <i class="bi bi-eye-slash" id="togglePassword" (click)="Toggle()"></i> -->
     </div>
     
     <button type="submit" class="btn btn-primary mt-2" (click)="loginUser()">Submit</button>
 
 </div>
-<p style = "color:gray">*use the credientials in box for login</p>
 </form>

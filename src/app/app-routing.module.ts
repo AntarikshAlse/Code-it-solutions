@@ -17,7 +17,7 @@ import { ContactComponent } from './components/contact/contact.component';
 
 
 const routes: Routes = [  
-//{path:"",component:DashboardComponent},
+{path:"",component:LoginComponent},
 {path:"login",component:LoginComponent},
 {path:"dashboard",component:DashboardComponent,canActivate:[AuthenticationGuard]},
 //{path:"dashboard",component:DashboardComponent},
@@ -33,9 +33,8 @@ const routes: Routes = [
 {path:'add-courses',component:AddCourseComponent,canActivate:[AuthenticationGuard]},
 {path:'add-institute',component:AddInstituteComponent,canActivate:[AuthenticationGuard]},
 {path:'edit-institute/:id',component:EditInstituteComponent,canActivate:[AuthenticationGuard]},
-{ path: "**", redirectTo:'login',pathMatch:'full',
-// children:[{path:"**",component:PageNotFoundComponent}] 
-}];   
+//{ path: "**", redirectTo:'login',pathMatch:'full'}
+];   
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -3,7 +3,7 @@
 
     <div class="form-group">
         <label for="cname">Course Name</label>
-        <input id="cname" type="text" class="form-control" name="coursename"   [ngModel]="courseObj.coursename">
+        <input id="cname" type="text" class="form-control" name="courseName"   [ngModel]="courseObj.courseName">
             
     </div>
     
@@ -13,5 +13,6 @@
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button"  class="btn btn-outline-danger mr-2" (click)="cancel()">Cancel</button>
     </form>
     

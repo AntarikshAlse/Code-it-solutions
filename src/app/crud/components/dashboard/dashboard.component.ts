@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
   }
   
   getdata(){
-    this._globalService.getData("student").subscribe((res)=>{this.studentList=res;
+    this._globalService.getData("students").subscribe((res)=>{this.studentList=res;
     console.log("get response is =>",res)},
     (error)=>{this.errorMsg=error});
   }
@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
   deleteStd(id:any){
 
     if(confirm(`Are You sure to delete this record with id: ${id} `)){
-      this._globalService.deleteData("student",id).subscribe(()=>{
+      this._globalService.deleteData("students",id).subscribe(()=>{
         alert(`Record Deleted Successfully with id ${id}`);
         this.getdata();
       })

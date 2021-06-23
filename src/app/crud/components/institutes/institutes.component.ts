@@ -15,24 +15,21 @@ p:number=1;
 
   ngOnInit(): void {
     this.getdata()
-  this.callarray()
-  }
-  callarray(){
-    console.log("heyy",this.instituteArray);
   }
 
   getdata(){
-    this.globalServices.getData('Institute')
-    .subscribe((res)=>{this.instituteArray=res; console.log("hi response",res)},
-    (error)=>{this.errorMsg=error});
-    }
-  deleteInstitute(id:any){
-    if(confirm(`Are You sure to delete this record with id: ${id} `))
+    this.globalServices.getData('institutes')
+    .subscribe((res)=>{this.instituteArray=res; 
+      console.log("hi response",res);
+    },
+    (error)=>{this.errorMsg=error})}
+  deleteInstitute(_id:any){
+    if(confirm(`Are You sure to delete this record with id: ${_id} `))
     {
-      this.globalServices.deleteData("Institute",id)
+      this.globalServices.deleteData("institutes",_id)
       .subscribe(()=>
-        {alert(`Record Deleted Successfully with id ${id}`);
-          this.getdata();})
+        {alert(`Record Deleted Successfully with id ${_id}`);
+          this.getdata()},(error)=>{this.errorMsg=error})
     }
   }
 }

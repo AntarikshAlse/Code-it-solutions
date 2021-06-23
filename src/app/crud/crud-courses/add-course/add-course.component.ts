@@ -19,7 +19,7 @@ export class AddCourseComponent implements OnInit {
   }
   AddData(val:any){
     const course={
-      coursename:val.name,
+      courseName:val.name,
       courseFees:val.fees
     }
     this.globalServices.addData('courses',course)
@@ -28,6 +28,9 @@ export class AddCourseComponent implements OnInit {
       this._router.navigate(['courses']);
     })
 
+  }
+  cancel(){
+    this._router.navigate(['institute']); 
   }
 
 }

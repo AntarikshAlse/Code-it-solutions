@@ -8,30 +8,33 @@ import { GlobalServiceService } from '../../shared/global-service.service';
   styleUrls: ['./edit-institute.component.css']
 })
 export class EditInstituteComponent implements OnInit {
-  instituteObj: any;
-  id:number=1;
+  instituteObj:any;
+  //id:number=1; // for json
+  _id:any = undefined;
   constructor(private _actRoute :ActivatedRoute,private _router:Router,private globalServices:GlobalServiceService) { }
 
   ngOnInit(): void {
 
     this._actRoute.paramMap.subscribe((params:any)=>{
-      this.id = Number(params.get('id'));
-      console.log(this.id);
+       this._id = params.get('id'); 
+       console.log('id is',this._id)
     })
 
-    this.globalServices.getSingleId("institute",this.id).subscribe((res: any) => {   
+    this.globalServices.getSingleId("institutes",this._id).subscribe((res: any) => {   
+      console.log("get single id response",res);
       this.instituteObj = {...res }
-      console.log("getsingle id response",this.instituteObj);
+      console.log('institute Obj is ',this.instituteObj)
     })
   }
    editData(val:any){
      const Iobj={
-       id:this.id,
-       institutename:val.institutename
+       _id:this._id,
+       instituteName:val.instituteName
      }
-     this.globalServices.updateData("Institute",Iobj,this.id)
+     console.log('Iobj is',Iobj,'with id',this._id)
+     this.globalServices.updateData("institutes",Iobj,this._id)
      .subscribe(()=>{
-       alert(`data of id :${this.id} updated successfully `);
+       alert(`data of id :${this._id} updated successfully `);
        this._router.navigate(['institute']);
      })
    }

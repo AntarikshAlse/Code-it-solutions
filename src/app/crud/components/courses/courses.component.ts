@@ -19,6 +19,7 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
     //calling data @ start of page
     this.getdata();
+
   }
 
 // get method
@@ -27,12 +28,12 @@ this.globalServices.getData('courses').subscribe((res)=>{this.courseArray=res},(
   this.errorMsg=error});
 }
 
-  deleteCourse(id:any){
-    if(confirm(`Are You sure to delete this record with id: ${id} `))
+  deleteCourse(_id:any){
+    if(confirm(`Are You sure to delete this record with id: ${_id} `))
     {
-      this.globalServices.deleteData("courses",id)
+      this.globalServices.deleteData("courses",_id)
       .subscribe(()=>
-        {alert(`Record Deleted Successfully with id ${id}`);
+        {alert(`Record Deleted Successfully with id ${_id}`);
           this.getdata();})
     }
   }

@@ -11,9 +11,10 @@ import * as bcrypt from 'bcryptjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+/*
   togglePassword:any = document.querySelector('#togglePassword');
   passgrab:any = document.querySelector('#password');
+*/
   constructor(private _globalSer:GlobalServiceService,private _router:Router) { }
 
   ngOnInit(): void {
@@ -24,9 +25,8 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this._globalSer.getData('users').subscribe((res)=>{
       this.userData=res;
-     const data=this.userData.filter((item:any)=>{ return item.userName==this.user && item.password==this.password
-     /* bcrypt.compare(this.password,item.password)
-      .then((res) => {console.log(res)})*/
+     const data=this.userData.filter((item:any)=>{ 
+      return item.userName==this.user && bcrypt.compareSync (this.password,item.password)   
     })
    
     if(data.length > 0){

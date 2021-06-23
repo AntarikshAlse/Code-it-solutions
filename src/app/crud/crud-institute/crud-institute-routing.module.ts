@@ -5,7 +5,7 @@ import { EditInstituteComponent } from './edit-institute/edit-institute.componen
 
 const routes: Routes = [
   {path:"add-institute",component:AddInstituteComponent},
-  {path:"edit-institute/:id",component:EditInstituteComponent}
+  {path:"edit-institute/:_id",component:EditInstituteComponent}
 ];
 
 @NgModule({

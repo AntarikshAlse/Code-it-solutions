@@ -24,11 +24,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let i of instituteArray | filter:searchrecord | paginate: { itemsPerPage: 6, currentPage: p }">
+            <!-- for JSON server
             <td>{{i.id}}</td>
-            <td>{{i.institutename}}</td>
+             <td>{{i.institutename}}</td> -->
+
+             <!-- finds index of array and starts from 1 -->
+             <td>{{instituteArray.indexOf(i) + 1}}</td>
+            <td>{{i.instituteName}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success mr-1" [routerLink]="['/edit-institute',i.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-danger mr-1" (click)="deleteInstitute(i.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-success mr-1" [routerLink]="['/edit-institute',i._id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-danger mr-1" (click)="deleteInstitute(i._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>
         </tr>
     </tbody>

@@ -22,14 +22,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let std of studentList | filter:searchrecord | paginate: { itemsPerPage: 6, currentPage: p } |orderBy: order:reverse">
-            <td >{{std.id}}</td>
+            <td >{{studentList.indexOf(std) + 1}}</td>
             <td>{{std.name}}</td>
             <td>{{std.Institute}}</td>
             <td>{{std.Course}}</td>
             <td class="col-sm-3"> 
                 <button type="button" class="btn btn-outline-primary" (click)="openModal(template)"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-success " [routerLink]="['/edit',std.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-danger " (click)="deleteStd(std.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/edit',std._id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteStd(std._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>
         
             <ng-template #template>

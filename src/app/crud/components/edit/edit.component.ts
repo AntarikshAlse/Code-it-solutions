@@ -14,7 +14,7 @@ export class EditComponent implements OnInit {
   constructor(private _actRoute :ActivatedRoute,private _globalServices:GlobalServiceService,private _router:Router,fb:FormBuilder) { }
   stdform:any;
   stdObj:any;
-  id:number=1;
+  _id:any;
   experience:string[]=experience;
   Advert:string[]=advert;
   ad:any;
@@ -29,11 +29,11 @@ export class EditComponent implements OnInit {
  /* *****************Requesting data******************** */
     //extracting id from url by activated route 
     this._actRoute.paramMap.subscribe((params:any)=>{
-      this.id = Number(params.get('id'));
-      console.log("activated route",this.id);
+      this._id = params.get('id');
+      console.log("activated route",this._id);
     })
 
-    this._globalServices.getSingleId("student",this.id).subscribe((res: any) => {   
+    this._globalServices.getSingleId("students",this._id).subscribe((res: any) => {   
       this.stdObj = {...res }
       console.log("obj of gbl singeid method",this.stdObj);
     })
@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
   /* ****************Sending Data********************* */
     getdata(val:any){
       const newstdObj={
-          id:this.id,
+          _id:this._id,
           Advert:val.Advert,
           Batch:val.Batch,
           Course:val.Course,
@@ -62,7 +62,7 @@ export class EditComponent implements OnInit {
           specialization:val.specialization
         }
         console.log("hii",newstdObj);
-        this._globalServices.updateData("student",newstdObj,this.id).subscribe(()=>{        //  global service
+        this._globalServices.updateData("students",newstdObj,this._id).subscribe(()=>{        //  global service
           alert("Data updated Successfully");
           this._router.navigate(['dashboard']); 
         })
@@ -70,12 +70,12 @@ export class EditComponent implements OnInit {
 
       instituteData()
     {
-      this._globalServices.getData('Institute')
-      .subscribe((res)=>{this.instituteArray=res; console.log("hi response",res)},
+      this._globalServices.getData('institutes')
+      .subscribe((res)=>{this.instituteArray=res; console.log("hi response institutes",res)},
       (error)=>{this.errorMsg=error});
     }
 
-  courseData()
+      courseData()
   {
     this._globalServices.getData('courses')
     .subscribe((res)=>{this.courseArray=res; console.log("hi response course",res)},

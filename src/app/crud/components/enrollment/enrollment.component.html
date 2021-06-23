@@ -133,7 +133,7 @@
         <label for="Other"> Other</label><br><br>
 
         <select class="form-control"  formControlName="Institute" *ngIf="instituteState">
-            <option *ngFor="let name of instituteArray">{{name.institutename}} </option> 
+            <option *ngFor="let name of instituteArray">{{name.instituteName}} </option> 
         </select>
         <div class="alert alert-danger" *ngIf="stdform.get('Institute').invalid && stdform.get('Institute').touched">
             <div *ngIf="stdform.get('Institute').errors.required"> this field is required</div>
@@ -144,7 +144,7 @@
         <label>Course</label>
         <select class="form-control" formControlName="Course">
             <option value="">Select Course </option>
-            <option *ngFor="let Lang of courseArray">{{Lang.coursename}} </option> 
+            <option *ngFor="let Lang of courseArray">{{Lang.courseName}} </option> 
         </select>
 
         <div class="alert alert-danger"

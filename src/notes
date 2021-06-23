@@ -1,0 +1,27 @@
+# Keeping Notes for clean code 
+ *All other api's tested = gloabalservice.ts
+new heroku
+baseUrl:string = "https://angularpjt1.herokuapp.com";
+old heroku
+baseUrl:string = "https://new-json-api.herokuapp.com";
+baseUrl:string = "https://testapi-one.herokuapp.com";
+baseUrl:string = "https://typicode-api.herokuapp.com"; 
+
+*login.comp.ts
+
+
+//for json server
+  loginUser(){
+    this._globalSer.getData('users').subscribe((res)=>{
+      this.userData=res;
+     const data=this.userData.filter((item:any)=>{ 
+          return item.userName==this.user && item.password==this.password 
+    })
+
+// for mongoDB using bcrypt.js
+    loginUser(){
+    this._globalSer.getData('users').subscribe((res)=>{
+      this.userData=res;
+     const data=this.userData.filter((item:any)=>{ 
+    return item.userName==this.user && bcrypt.compareSync (this.password,item.password) 
+     })

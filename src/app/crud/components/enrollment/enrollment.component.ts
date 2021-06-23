@@ -47,7 +47,7 @@ export class EnrollmentComponent implements OnInit {
       qualification:val.stdQualification,
       specialization:val.stdSpecialization
     }
-    this.globalSer.addData("student",stdObj).subscribe(()=>{
+    this.globalSer.addData("students",stdObj).subscribe(()=>{
       alert(stdObj.yearofPassing);
       alert("Data added successfully");
       this._router.navigate(['dashboard']);
@@ -116,7 +116,7 @@ export class EnrollmentComponent implements OnInit {
    //to get courses and institute dynamically
   instituteData()
     {
-      this.globalSer.getData('Institute')
+      this.globalSer.getData('institutes')
       .subscribe((res)=>{this.instituteArray=res; console.log("hi response",res)},
       (error)=>{this.errorMsg=error});
     }

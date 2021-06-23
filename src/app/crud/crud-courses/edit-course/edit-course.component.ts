@@ -9,13 +9,13 @@ import { GlobalServiceService } from '../../shared/global-service.service';
 })
 export class EditCourseComponent implements OnInit {
 courseObj:any;
-id:number=1;
+id:any;
   constructor(private _actRoute :ActivatedRoute,private _router:Router,private globalServices:GlobalServiceService) { }
 
   ngOnInit(): void {
 
     this._actRoute.paramMap.subscribe((params:any)=>{
-      this.id = Number(params.get('id'));
+      this.id = params.get('id');
       console.log(this.id);
     })
 
@@ -27,7 +27,7 @@ id:number=1;
   editData(val:any){
     const courseobj={
       id:this.id,
-      coursename:val.coursename,
+      courseName:val.courseName,
       courseFees:val.courseFees,
 
     }

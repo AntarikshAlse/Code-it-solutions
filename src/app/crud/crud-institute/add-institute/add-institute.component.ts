@@ -20,13 +20,17 @@ export class AddInstituteComponent implements OnInit {
   Data(val:any){
     console.log("yeh",val);
     const instituteObj={
-      institutename:val.fname,
+      instituteName:val.fname,
     }
     console.log("info dena",instituteObj)
-    this.globalServices.addData('Institute',instituteObj).subscribe(()=>{
+    this.globalServices.addData('institutes',instituteObj).subscribe(()=>{
       alert("Data added successfully");
        this._router.navigate(['institute']);
     })}
+
+    cancel(){
+      this._router.navigate(['institute']); 
+    }
 
 
 }

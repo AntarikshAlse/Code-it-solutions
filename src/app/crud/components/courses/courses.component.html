@@ -22,12 +22,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let c of courseArray | filter:searchrecord | paginate: { itemsPerPage: 6, currentPage: p }">
-            <td>{{c.id}}</td>
-            <td>{{c.coursename}}</td>
+            <td>{{courseArray.indexOf(c)+ 1}}</td>
+            <td>{{c.courseName}}</td>
             <td>{{c.courseFees | currency:"INR"}}</td>
             <td>
-                <button type="button" class="btn btn-outline-success mr-1" [routerLink]="['/edit-courses',c.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-danger mr-1" (click)="deleteCourse(c.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-success mr-1" [routerLink]="['/edit-courses',c._id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-danger mr-1" (click)="deleteCourse(c._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>
         </tr>
     </tbody>
